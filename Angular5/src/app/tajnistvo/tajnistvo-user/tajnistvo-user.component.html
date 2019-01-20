@@ -1,0 +1,37 @@
+<table class="striped">
+    <thead>
+      <tr>
+          <th>Priimek</th>
+          <th>Ime</th>
+          <th>Soba</th>      
+          <th>Pregled</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let user of usersService.usersList">
+
+        <td>{{ user.lastName}}</td>
+        <td>{{ user.firstName}}</td>
+        <td>{{ user.roomNumber}}</td>
+        <td class="brand-logo center">
+               <div>
+                 <div *ngIf="user.id == tajnistvoService.userId">
+                    <a  class="btn btn-medium red" (click)="showUser(user.id)">
+                        Prikaži
+                        </a>
+                 </div>
+                 <div *ngIf="user.id != tajnistvoService.userId">
+                    <a  class="btn btn-medium green" (click)="showUser(user.id)">
+                        Prikaži
+                        </a>
+                 </div>
+
+               </div>
+
+          
+        </td>
+            
+      </tr>
+    </tbody>
+  </table>

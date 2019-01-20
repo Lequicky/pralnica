@@ -1,0 +1,64 @@
+
+<form class="col s12 indigo lighten-5" #showReservation="ngForm" (ngSubmit)="OnSubmit()" >
+    <div class="row">
+        <div class="input-field col s4">
+          <label>Day</label>
+        </div>
+      <div class="input-field col s8">
+        <input class="validate" type="text" name="DatumString" #DatumString="ngModel" [(ngModel)]="reservationsService.selectedTermin.datum_string" required>
+      <div class="validation-error" *ngIf="DatumString.invalid && DatumString.touched">To polje je obvezno</div>
+    </div>
+    </div>
+      <div class="row">
+        <div class="input-field col s4">
+            <label>Termin</label>
+
+        </div>
+        <div class="input-field col s8">
+          <input class="validate" type="text" name="PeriodName" #PeriodName="ngModel" [(ngModel)]="reservationsService.selectedTermin.period_name" required>
+
+          <div class="validation-error" *ngIf="PeriodName.invalid && PeriodName.touched">To polje je obvezno</div>
+        </div>
+
+ 
+      </div>
+      <div class="row">
+          <div class="input-field col s4">
+              <label>Washing room</label>
+  
+          </div>
+          <div class="col s8">
+              <select (change)="changeRoom($event.target.value)" class="browser-default" required >
+                  <option value="">Chose washing room</option>
+                  <option  *ngFor="let room of reservationsService.availableWashingRooms">{{room.name}}</option>
+                </select>
+          </div>
+      </div>
+          <div  *ngIf="isSelected===1" class="row">
+              <div class="input-field col s4">
+                  <label>Chose number of Washingmachines</label>
+      
+              </div>
+          <div *ngIf="isSelected===1" class="range-field col s8" >
+ 
+                  <input  class="validate" (change)="test($event.target.value)" type="number" name ="test5" id="test5"  min="1" max={{chosenRoom.washingMachineCount}} required />
+            
+          </div>
+        </div>
+       
+
+
+
+
+      
+
+
+      <div class="row" *ngIf="isSelected===1" >
+<!--           <div class="input-field col s6">
+              <button  class="btn-large btn-submit" type="button">Reset</button>
+            </div> -->
+          <div class="input-field col s12">
+            <button [disabled]="!showReservation.valid" class="btn-large btn-submit" type="submit">Finish Reservation</button>
+          </div>
+        </div>
+    </form>

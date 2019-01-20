@@ -1,0 +1,34 @@
+<table class="striped">
+    <thead>
+      <tr>
+<!--           <th>Slika</th> -->
+          <th>Priimek</th>
+          <th>Ime</th>
+          <th>Soba</th>
+          <th>E-pošta</th>
+          
+          <th>Aktiven/neaktiven</th>
+          <th style="text-align: center;">Izbriši</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let user of usersService.usersList">
+<!--         <td > <img  [src]="imageFolder+user.imageUrl" style="width: 40px; height: 50px; margin:2px;"></td> -->
+        <td>{{ user.firstName}}</td>
+        <td>{{ user.lastName}}</td>
+        <td>{{ user.roomNumber}}</td>
+        <td>{{ user.email}}</td>
+        <td class="brand-logo center">
+               <div>
+                  <a  class="btn-floating btn-small red" (click)="changeStatus(user.id)">
+                      <i *ngIf="user.isAllowed === true" class="small material-icons">check_box</i>
+                      <i *ngIf="user.isAllowed === false" class="small material-icons">check_box_outline_blank </i>
+                  
+                    </a>
+               </div>
+        </td>
+        <td class="brand-logo center"><a  class="btn btn-medium red" (click)="deleteUser(user)">Izbrisi</a></td>    
+      </tr>
+    </tbody>
+  </table>

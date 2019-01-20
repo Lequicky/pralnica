@@ -1,0 +1,35 @@
+<table class="striped">
+    <thead>
+      <tr>
+          <th>Koda sobe</th>
+          <th>Opis sobe</th>
+          <th>Št. pralnih strojev</th>
+          <th>Uredi</th>
+          <th>Aktiven/neaktiven</th>
+          <th>Izbriši</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let room of roomsService.roomsList">
+        <td>{{ room.code}}</td>
+        <td>{{ room.name}}</td>
+        <td>{{ room.washingMachineCount}}</td>
+        <td class="brand-logo center">
+            <a class="btn-floating btn-small red" (click)="showForEdit(room)">
+              <i class="small material-icons">mode_edit</i>
+            </a> 
+        </td>
+        <td class="brand-logo center">
+          <div >       
+            <a  class="btn-floating btn-small red" (click)="changeStatus(room.id)">
+              <i *ngIf="room.isActive === true" class="small material-icons">check_box</i>
+              <i *ngIf="room.isActive === false" class="small material-icons">check_box_outline_blank</i>
+            </a>
+          </div> 
+        </td>
+        <td class="brand-logo center">
+          <a  class="btn btn-medium red" (click)="deleteRoom(room.id)">Izbriši</a>
+        </td>          
+      </tr>
+    </tbody>
+  </table>

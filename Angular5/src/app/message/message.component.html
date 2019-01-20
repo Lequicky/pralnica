@@ -1,0 +1,17 @@
+
+<app-navigation></app-navigation>
+  <form #addMessage="ngForm"  (ngSubmit)="OnSubmit(Message.value)">
+    <p style="padding-left: 20px; font-size: 22px;"> Describe what happened: </p>
+    <div class="row">
+      <div class="input-field col s12">
+        <!-- <input  type="text" #Message ngModel name="Message"  required>  -->
+        <textarea style="height:250px; background-color:white;"id="textarea1"  #Message ngModel name="Message"  required></textarea >
+
+      </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s6 offset-s3">
+          <button [disabled]="!addMessage.valid" class="btn-large btn-submit" type="submit">Send error message</button>
+        </div>
+      </div>
+  </form>

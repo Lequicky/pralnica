@@ -1,0 +1,48 @@
+<nav>
+    <div class="nav-wrapper">
+        <ul id="nav-mobile" class="left hide-on-low-and-down">
+            <!--           <li *ngIf="userService.roleMatch(['Admin'])">
+                          <a routerLink="/admin-panel">Admin Panel</a>
+            </li> -->
+          <li *ngIf="userService.roleMatch(['Admin'])">
+              <a routerLink="/users">Uporabniki</a>
+          </li>
+          <li *ngIf="userService.roleMatch(['Admin'])">
+              <a routerLink="/rooms">Sobe</a>
+          </li>
+          <li *ngIf="userService.roleMatch(['Admin', 'Accountant'])">
+              <a routerLink="/tajnistvo-home">Pregled po uporabnikih</a>
+          </li>
+          <li *ngIf="userService.roleMatch(['Admin', 'Accountant'])">
+              <a routerLink="/tajnistvo-month">Poročilo</a>
+          </li>
+
+          <li *ngIf="userService.roleMatch(['Student'])">
+              <a routerLink="/student-home">Reservations Overview</a>
+          </li>
+          <li *ngIf="userService.roleMatch(['Student'])">
+              <a routerLink="/reservations">New Reservation</a>
+          </li>    
+        </ul>
+      <a  class="brand-logo center">
+      <i class="material-icons">home</i> Pralnica </a>
+      <ul id="nav-mobile" class="right hide-on-low-and-down">
+<!--             <li *ngIf="userService.roleMatch(['Student'])">
+                    <img  [src]="this.imageUrl" style="width: 40px; height: 50px; margin-top:5px;">
+                </li>   -->
+            
+<!--             <li *ngIf="userService.roleMatch(['Student'])">
+                    <a  routerLink="/student-edit"></a>
+                </li>   -->
+          <li *ngIf="userService.roleMatch(['Student'])">
+              <a  routerLink="/student-message">Report Error!</a>
+          </li>  
+          <li *ngIf="userService.roleMatch(['Admin'])">
+              <a  routerLink="/admin-message">Prijavljene napake</a>
+          </li>  
+        <li>
+          <a (click)="Logout()">Log out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>

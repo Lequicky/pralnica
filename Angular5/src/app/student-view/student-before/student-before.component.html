@@ -1,0 +1,20 @@
+
+  <table class="striped">
+      <thead>
+        <tr>
+            <th>Day</th>
+            <th>Termin</th>
+            <th>Washing room</th>
+            <th>Washingmachine count</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let res of studentViewService.reservationsHistory">
+          <td>{{res.dateOfWashing}}</td>
+          <td>{{res.periodName}}</td>
+          <td>{{res.washingRoomName}}</td>
+          <td>{{res.washingMachineCount}}</td>
+        </tr>
+      </tbody>
+    </table>

@@ -1,0 +1,38 @@
+<app-navigation></app-navigation>
+<div class="row">
+  
+
+    
+</div>
+<div class="row">
+    
+    <div class="col s6">
+        <h5>Reservations</h5>
+        <table class="striped">
+            <thead>
+              <tr>
+                  <th>Day</th>
+                  <th>Termin</th>
+                  <th>Washing room</th>
+                  <th>Washingmachine count</th>
+                  <th>Delete reservation</th>
+              </tr>
+            </thead>
+    
+            <tbody>
+              <tr *ngFor="let res of studentViewService.reservations">
+                <td>{{res.dateOfWashing}}</td>
+                <td>{{res.periodName}}</td>
+                <td>{{res.washingRoomName}}</td>
+                <td>{{res.washingMachineCount}}</td>
+                <td><div *ngIf="!res.status"><a class="btn btn-medium red" (click)=deleteReservation(res.id)>Izbriši </a></div></td>
+        
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="col s6">
+      <h5>Previous reservations</h5>
+        <app-student-before></app-student-before>
+    </div>
+  </div>

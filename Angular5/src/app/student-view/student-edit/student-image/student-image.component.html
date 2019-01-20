@@ -1,0 +1,23 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <h4>Spremeni sliko</h4>
+    </div>
+    <div class="col s12">
+      <form #imageForm="ngForm" (ngSubmit)="OnSubmit(Image)">
+  
+          
+          <div class="input-field col s12" style="align-items: center;">
+              <img [src]="imageUrl" style="width: 200px; height: 250px;">
+              <input type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)" >
+          </div>
+
+          <div class="input-field col s12">
+              <button type="submit" class="btn-large btn-submit" [disabled]="Image.value ==''">Spremeni sliko</button>
+          </div>
+
+        </form>
+    </div>
+  </div>
+</div>

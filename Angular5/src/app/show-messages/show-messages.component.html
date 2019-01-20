@@ -1,0 +1,22 @@
+<app-navigation></app-navigation>
+<div class="row">
+  <div class="col s10 offset-s1">
+    <table class="striped">
+        <thead>
+          <tr>
+              <th style="width: 25%;">Uporabnik</th>
+              <th style="text-align: center;">Sporočilo</th>
+          </tr>
+        </thead>
+    
+        <tbody>
+          <tr *ngFor="let msg of showMessagesService.messages">
+              <td style="text-align: left;">{{ msg.userLastFirstName}}</td>
+            <td >{{ msg.messageText}}</td>
+            
+
+          </tr>
+        </tbody>
+      </table>
+</div>
+</div>

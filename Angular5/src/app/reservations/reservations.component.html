@@ -1,0 +1,59 @@
+<app-navigation></app-navigation>
+<div class="row" >
+  <table class="striped">
+  <thead>
+    <tr >
+      <th>Days / Termins</th>
+        <th *ngFor="let day of reservationsService.dnevi">{{ day }}</th>
+    </tr>
+  </thead>
+
+  <tbody >
+    
+    <tr>
+      <th>6:00 - 9:00</th>
+      <td class="brand-logo center" *ngFor="let termin of reservationsService.termini1" >
+          <a  class="btn-floating btn-small " (click)="termin.reserved && chosenTermin(termin)" ><i *ngIf="termin.reserved" class="small material-icons ">add</i>
+            <i *ngIf="!termin.reserved" class="small material-icons red">block</i>      
+            
+          </a>  
+      </td>
+    </tr>
+    <tr>
+      <th >10:00 - 13:00</th>
+      <td class="brand-logo center" *ngFor="let termin of reservationsService.termini2" >
+          <a  class="btn-floating btn-small" (click)="termin.reserved && chosenTermin(termin)" ><i *ngIf="termin.reserved" class="small material-icons">add</i>
+            <i *ngIf="!termin.reserved" class="small material-icons red">block</i>      
+            
+          </a>  
+      </td>
+    </tr>
+    <tr>
+      <th>14:00 - 17:00</th>
+      <td class="brand-logo center" *ngFor="let termin of reservationsService.termini3" >
+          <a  class="btn-floating btn-small " (click)="termin.reserved && chosenTermin(termin)" ><i *ngIf="termin.reserved" class="small material-icons ">add</i>
+            <i *ngIf="!termin.reserved" class="small material-icons red">block</i>      
+            
+          </a>  
+      </td>
+    </tr>
+    <tr>
+      <th>18:00 - 21:00</th>
+      <td class="brand-logo center" *ngFor="let termin of reservationsService.termini4" >
+        <a  class="btn-floating btn-small" (click)="termin.reserved && chosenTermin(termin)" ><i *ngIf="termin.reserved" class="small material-icons ">add</i>
+        <i *ngIf="!termin.reserved" class="small material-icons red">block</i>      
+        
+      </a>  
+      </td>
+    </tr>
+                
+  </tbody>
+</table>
+</div>
+
+  
+ <div   class="row" >
+    <app-termin class="col s6 offset-s3"></app-termin>
+ </div>  
+
+

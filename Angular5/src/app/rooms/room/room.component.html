@@ -1,0 +1,44 @@
+
+<form class="col s12 indigo lighten-5" #addRoomForm="ngForm" (ngSubmit)="onSubmit(addRoomForm)">
+<input type="hidden" name="id" #id="ngModel" [(ngModel)]="roomsService.selectedRoom.id">
+  <input type="hidden" name="IsActive" #IsActive="ngModel" [(ngModel)]="roomsService.selectedRoom.isActive">
+    <div class="row">
+        <div class="input-field col s4">
+            <label>Koda sobe (Unikatna)</label>
+        </div>
+      <div class="input-field col s8">
+        <input class="validate" type="text" name="Code" #Code="ngModel" [(ngModel)]="roomsService.selectedRoom.code" required>
+        <div class="validation-error" *ngIf="Code.invalid && Code.touched">To polje je obvezno</div>
+      </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s4">
+            <label>Ime sobe</label>
+        </div>
+        <div class="input-field col s8">
+          <input class="validate" type="text" name="Name" #Name="ngModel" [(ngModel)]="roomsService.selectedRoom.name" required>
+          <div class="validation-error" *ngIf="Name.invalid && Name.touched">To polje je obvezno</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s4">
+            <label>Št pralnih strojev</label>
+        </div>
+          <div class="input-field col s8">
+            <input class="validate" type="text" name="WashingMachineCount" #WashingMachineCount="ngModel" [(ngModel)]="roomsService.selectedRoom.washingMachineCount" required>
+            
+            <div class="validation-error" *ngIf="WashingMachineCount.invalid && WashingMachineCount.touched">Število pralnih strojev mora biti večja od 0</div>
+          </div>
+        </div>
+
+
+    <div class="row">
+        <div class="input-field col s4">
+            <button  class="btn-large btn-submit" (click)="resetForm(addRoomForm)" type="button">Reset</button>
+          </div>
+        <div class="input-field col s8">
+          <button [disabled]="!addRoomForm.valid" class="btn-large btn-submit" type="submit">Dodaj/Spremeni</button>
+        </div>
+      </div>
+  </form>
+  

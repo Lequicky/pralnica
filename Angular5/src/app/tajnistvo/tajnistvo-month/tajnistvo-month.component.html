@@ -1,0 +1,61 @@
+<app-navigation></app-navigation>
+<div class="row">
+    <form class="col s12 indigo lighten-5" #datePicker="ngForm"  >
+        <select (change)="selectedYear($event.target.value)" class="browser-default"  >
+          <!-- <option value="">Izberi leto</option> -->
+          <option  *ngFor="let leto of leta">{{leto }}</option>
+        </select>
+    
+        <select (change)="selectedMonth($event.target.value)" class="browser-default"  >
+          <!-- <option value="">Izberi mesec</option> -->
+          <option  *ngFor="let mesec of meseci" >{{mesec}}</option>
+        </select>
+        </form>
+    
+</div>
+
+<button (click)="downloadReportPDF()" >Prensi PDF</button>
+<div class="content" #content>
+
+        <table class="striped">
+            <thead>
+              <tr>
+                  <th>Priimek</th>
+                  <th>Ime</th>
+                  <th>Soba</th>
+                  <th>Tip</th>
+                  <th>Stevilo</th>
+              </tr>
+            </thead>
+        
+            <tbody>
+              <tr *ngFor="let res of tajnistvoService.resReport">
+        
+                <td>{{ res.lastName}}</td>
+                <td>{{ res.firstName}}</td>
+                <td>{{ res.roomNumber}}</td>
+                <td>{{ res.tip }}</td>
+                <td>{{ res.washingMachineCount}}</td>
+        <!--         <td class="brand-logo center">
+                       <div>
+                         <div *ngIf="user.id == tajnistvoService.userId">
+                            <a  class="btn btn-medium red" (click)="showUser(user.id)">
+                                Prikaži
+                                </a>
+                         </div>
+                         <div *ngIf="user.id != tajnistvoService.userId">
+                            <a  class="btn btn-medium green" (click)="showUser(user.id)">
+                                Prikaži
+                                </a>
+                         </div>
+        
+                       </div>
+        
+                  
+                </td> -->
+                    
+              </tr>
+            </tbody>
+          </table>
+
+</div>
